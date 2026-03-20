@@ -1,51 +1,39 @@
 /**
  * Train Consist Management App
- * UC2: Add Passenger Bogies using ArrayList Operations
+ * UC3: Track Unique Bogie IDs using HashSet
  *
- * Demonstrates add, remove, and contains operations
- * on a dynamic list of passenger bogies.
+ * Demonstrates how Set ensures uniqueness and prevents duplicates.
  *
  * @author YourName
- * @version 2.0
+ * @version 3.0
  */
 
-import java.util.ArrayList;
+import java.util.HashSet;
 
-public class TrainConsistUC2 {
+public class TrainConsistUC3 {
 
     public static void main(String[] args) {
 
         System.out.println("======================================");
         System.out.println("=== Train Consist Management App ===");
-        System.out.println("=== UC2: Passenger Bogie Management ===");
+        System.out.println("=== UC3: Unique Bogie IDs (HashSet) ===");
         System.out.println("======================================");
 
-        // Initialize ArrayList for passenger bogies
-        ArrayList<String> passengerBogies = new ArrayList<>();
+        // Create HashSet for bogie IDs
+        HashSet<String> bogieIds = new HashSet<>();
 
-        // Add bogies
-        passengerBogies.add("Sleeper");
-        passengerBogies.add("AC Chair");
-        passengerBogies.add("First Class");
+        // Add bogie IDs (including duplicates)
+        bogieIds.add("BG101");
+        bogieIds.add("BG102");
+        bogieIds.add("BG103");
+        bogieIds.add("BG101"); // duplicate
+        bogieIds.add("BG102"); // duplicate
 
-        // Display bogies after insertion
-        System.out.println("\nPassenger Bogies after addition:");
-        System.out.println(passengerBogies);
+        // Display final set
+        System.out.println("\nUnique Bogie IDs in the train:");
+        System.out.println(bogieIds);
 
-        // Remove a bogie
-        passengerBogies.remove("AC Chair");
-
-        // Display bogies after removal
-        System.out.println("\nPassenger Bogies after removing 'AC Chair':");
-        System.out.println(passengerBogies);
-
-        // Check existence of a bogie
-        boolean exists = passengerBogies.contains("Sleeper");
-        System.out.println("\nDoes 'Sleeper' bogie exist? " + exists);
-
-        // Final state
-        System.out.println("\nFinal Passenger Bogie List:");
-        System.out.println(passengerBogies);
+        System.out.println("\nNote: Duplicate IDs are automatically ignored by HashSet.");
 
         System.out.println("\nProgram continues...");
     }
