@@ -1,39 +1,52 @@
 /**
  * Train Consist Management App
- * UC3: Track Unique Bogie IDs using HashSet
+ * UC4: Maintain Ordered Bogie IDs using LinkedList
  *
- * Demonstrates how Set ensures uniqueness and prevents duplicates.
+ * Demonstrates insertion, deletion, and order preservation
+ * using a LinkedList to model a real train consist.
  *
  * @author YourName
- * @version 3.0
+ * @version 4.0
  */
 
-import java.util.HashSet;
+import java.util.LinkedList;
 
-public class TrainConsistUC3 {
+public class TrainConsistUC4 {
 
     public static void main(String[] args) {
 
         System.out.println("======================================");
         System.out.println("=== Train Consist Management App ===");
-        System.out.println("=== UC3: Unique Bogie IDs (HashSet) ===");
+        System.out.println("=== UC4: Ordered Bogie Consist ===");
         System.out.println("======================================");
 
-        // Create HashSet for bogie IDs
-        HashSet<String> bogieIds = new HashSet<>();
+        // Create LinkedList for train consist
+        LinkedList<String> consist = new LinkedList<>();
 
-        // Add bogie IDs (including duplicates)
-        bogieIds.add("BG101");
-        bogieIds.add("BG102");
-        bogieIds.add("BG103");
-        bogieIds.add("BG101"); // duplicate
-        bogieIds.add("BG102"); // duplicate
+        // Add bogies
+        consist.add("Engine");
+        consist.add("Sleeper");
+        consist.add("AC");
+        consist.add("Cargo");
+        consist.add("Guard");
 
-        // Display final set
-        System.out.println("\nUnique Bogie IDs in the train:");
-        System.out.println(bogieIds);
+        System.out.println("\nInitial Train Consist:");
+        System.out.println(consist);
 
-        System.out.println("\nNote: Duplicate IDs are automatically ignored by HashSet.");
+        // Insert Pantry Car at position 2
+        consist.add(2, "Pantry Car");
+
+        System.out.println("\nAfter inserting Pantry Car at position 2:");
+        System.out.println(consist);
+
+        // Remove first and last bogie
+        consist.removeFirst();
+        consist.removeLast();
+
+        System.out.println("\nAfter removing first and last bogie:");
+        System.out.println(consist);
+
+        System.out.println("\nFinal ordered train consist displayed successfully.");
 
         System.out.println("\nProgram continues...");
     }
